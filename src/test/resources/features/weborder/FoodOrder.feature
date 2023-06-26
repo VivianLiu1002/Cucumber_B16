@@ -16,7 +16,7 @@ Feature:  Testing food order functionality
  #BUT!!! IT STOPS AT THE STEP WHEN IT'S NOT REPEATING; even the ones after the "non-repeated" are repeating,
  #those don't count
 
-
+@regression
 Scenario: testing HappyPath for MyHouse Food Order
 # Given User enters the correct username 'guest1@microworks.com' and password 'Guest1!' and clicks login button
 # When User checks the group order box and clicks next button

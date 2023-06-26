@@ -9,15 +9,15 @@ import io.cucumber.java.Scenario;
 import org.openqa.selenium.WebDriver;
 
 public class WebOrderHook {
-    WebDriver driver= DriverHelper.getDriver();
-        @Before//import from cucumber IO, not JUnit!!!
-    public void setup(){
-        driver.get(CongfigReader.readProperty("QA_weborder_url"));
-        }
-
-        @After
-    public void tearDown(Scenario scenario){
-            BrowsersUtils.getScreenshotForCucumber(driver,scenario);
-        driver.quit();
-        }
+//    WebDriver driver= DriverHelper.getDriver();
+//        @Before//import from cucumber IO, not JUnit!!!
+//    public void setup(){
+//        driver.get(CongfigReader.readProperty("QA_weborder_url"));
+//        }
+//
+//        @After
+//    public void tearDown(Scenario scenario){
+//            BrowsersUtils.getScreenshotForCucumber(driver,scenario);
+//        driver.quit();
+//        }
 }

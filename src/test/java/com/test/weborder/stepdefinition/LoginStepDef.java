@@ -23,7 +23,7 @@ public class LoginStepDef {
       webOrderLoginPage.loginFunctionality(username,password);
     }
     @Then("User validates the message {string}")
-    public void user_validates_the_message(String expectedMessage) {
+    public void user_validates_the_message(String expectedMessage) throws InterruptedException {
        Assert.assertEquals(webOrderLoginPage.errorMessage(),expectedMessage);
     }
     @When("User enters the username {string} and password {string} and User clicks login button")

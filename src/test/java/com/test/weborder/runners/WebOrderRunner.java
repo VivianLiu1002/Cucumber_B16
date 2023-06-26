@@ -8,8 +8,12 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features ="src/test/resources/features/weborder",//feature file location
         glue="com/test/weborder/stepdefinition",//step definitions file location
-        dryRun = true//only gives the undefined snips, instead of running the whole thing
+        dryRun = false,//only gives the undefined snips, instead of running the whole thing
         //remember to convert it to false after getting the snips
+        tags = "@regression",
+        plugin = {"pretty", "html:target/uiReport.html","rerun:target/uiFailedTests.txt"}
+        //creates the report file and another file for failed tests
+
 
 )
 public class WebOrderRunner {

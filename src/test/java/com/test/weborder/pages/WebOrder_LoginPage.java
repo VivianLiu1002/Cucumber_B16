@@ -27,7 +27,8 @@ public class WebOrder_LoginPage {
         this.password.sendKeys(password);
         loginButton.click();
     }
-    public String errorMessage(){
+    public String errorMessage() throws InterruptedException {
+        Thread.sleep(2000);
         return BrowsersUtils.getText(errorMessage);
     }
 

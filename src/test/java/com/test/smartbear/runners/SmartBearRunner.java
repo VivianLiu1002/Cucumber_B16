@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features ="src/test/resources/features/smartBear",
-        glue="src/test/java/com/test/smartbear/stepdefinitions",
+        glue="com/test/smartbear/stepdefinitions",
         dryRun = false,
         tags = "@regression",
         plugin = {"pretty", "html:target/uiReport.html","rerun:target/uiFailedTests.txt"}

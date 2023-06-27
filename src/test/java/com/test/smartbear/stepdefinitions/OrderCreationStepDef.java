@@ -38,13 +38,14 @@ public class OrderCreationStepDef {
     public void user_clicks_process_button_and_validates_the_order_message_and_clicks_view_order_button(String expectedMessage) {
         smartBearOrderPage.processOrder(expectedMessage);
     }
-    @Then("User validates all information {string}, {string},{string},{string},{string},{string},{string},{string},{string},{string} from table")
-    public void user_validates_all_information_from_table(String name,String product,String quantity,String street,
-                                                          String city,String state,String zip,String cardType,String cardNumber,String expirationDate) {
-        smartBearMainPage.clickViewAllOrderButton();
-        smartBearViewOrderPage.orderConfirm(name, product, quantity, street, city,
-                state, zip, cardType, cardNumber, expirationDate);
 
+    @Then("User validates all information {string}, {string},{string},{string},{string},{string},{string},{string},{string},{string},{string} from table")
+    public void user_validates_all_information_java_time_local_date_from_table(String name,String product,String quantity,String date, String street,
+                                                                               String city,String state,String zip,String cardType,String cardNumber,String expirationDate) {
+        smartBearMainPage.clickViewAllOrderButton();
+        smartBearViewOrderPage.orderConfirm(name, product, quantity, date, street, city,
+                state, zip, cardType, cardNumber, expirationDate);
     }
+
 
 }

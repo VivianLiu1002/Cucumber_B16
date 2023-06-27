@@ -17,12 +17,12 @@ public class SmartBearViewOrderPage {
     @FindBy(xpath = "//table[@class='SampleTable']//tr[2]//td")
     List<WebElement> orderData;
 
-    public void orderConfirm(String name,String product,String quantity,String street,
+    public void orderConfirm(String name,String product,String quantity,String date,String street,
     String city,String state,String zip,String cardType,String cardNumber,String expirationDate){
-        List<String> expectedInfo= Arrays.asList(name, product, quantity, street, city,
+        List<String> expectedInfo= Arrays.asList(name, product, quantity, date,street, city,
                 state, zip, cardType, cardNumber, expirationDate);
-        for (int i=1,k=0; i<orderData.size()-1;i++, k++){
-            Assert.assertEquals(expectedInfo.get(k), BrowsersUtils.getText(orderData.get(i)));
+        for (int i=1; i<orderData.size()-1;i++){
+            Assert.assertEquals(expectedInfo.get(i-1), BrowsersUtils.getText(orderData.get(i)));
         }
     }
 }

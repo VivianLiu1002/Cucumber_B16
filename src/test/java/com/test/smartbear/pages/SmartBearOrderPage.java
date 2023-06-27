@@ -29,7 +29,7 @@ public class SmartBearOrderPage {
     WebElement zip;
     @FindBy(xpath = " //input[@value='Visa']")
     WebElement visa;
-    @FindBy(xpath = " // //input[@value='MasterCard']")
+    @FindBy(xpath = "//input[@value='MasterCard']")
     WebElement masterCard;
     @FindBy(xpath = " //input[@value='American Express']")
     WebElement Amex;
@@ -67,7 +67,7 @@ public class SmartBearOrderPage {
                 }break;
             case "american express":
             if (Amex.isEnabled() && Amex.isDisplayed() && !Amex.isSelected()) {
-                visa.click();
+                Amex.click();
             }break;
         }
         this.cardNumber.sendKeys(cardNumber);

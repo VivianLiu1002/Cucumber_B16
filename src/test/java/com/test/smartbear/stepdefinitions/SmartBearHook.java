@@ -11,12 +11,12 @@ import org.openqa.selenium.WebDriver;
 public class SmartBearHook {
     WebDriver driver= DriverHelper.getDriver();
     @Before
-    public void setup(WebDriver driver){
+    public void setup(){
         driver.get(CongfigReader.readProperty("QA_smartBear_Url"));
     }
     @After
     public void tearDown(Scenario scenario){
         BrowsersUtils.getScreenshotForCucumber(driver,scenario);
-        //driver.quit();
+        driver.quit();
     }
 }

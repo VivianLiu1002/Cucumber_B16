@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.List;
 
@@ -17,12 +19,16 @@ public class SmartBearViewOrderPage {
     @FindBy(xpath = "//table[@class='SampleTable']//tr[2]//td")
     List<WebElement> orderData;
 
-    public void orderConfirm(String name,String product,String quantity,String date,String street,
+    public void orderConfirm(String name,String product,String quantity,String street,
     String city,String state,String zip,String cardType,String cardNumber,String expirationDate){
-        List<String> expectedInfo= Arrays.asList(name, product, quantity, date,street, city,
-                state, zip, cardType, cardNumber, expirationDate);
+        DateTimeFormatter dtf=DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        LocalDateTime now=LocalDateTime.now().plusDays(1);
+        String currentDate=dtf.format(now);
+
+        List<String> expectedInfo= Arrays.asList("",name, product, quantity, currentDate, street, city,
+                state, zip, cardType, cardNumber, expirationDate,"");//we don't validate the first and last element
         for (int i=1; i<orderData.size()-1;i++){
-            Assert.assertEquals(expectedInfo.get(i-1), BrowsersUtils.getText(orderData.get(i)));
+            Assert.assertEquals(expectedInfo.get(i), BrowsersUtils.getText(orderData.get(i)));
         }
     }
 }

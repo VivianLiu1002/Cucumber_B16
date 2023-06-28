@@ -56,6 +56,12 @@ public class SmartBearOrderPage {
         this.zip.sendKeys(zip);
     }
     public void enterCardInfo(String cardType, String cardNumber,String expirationDate){
+        selectCardType(cardType);//more professional to call the method like this instead of doing it within 1 method
+        this.cardNumber.sendKeys(cardNumber);
+        this.expirationDate.sendKeys(expirationDate);
+    }
+
+    public void selectCardType(String cardType){
         switch (cardType.toLowerCase()){
             case "visa":
                 if (visa.isEnabled() && visa.isDisplayed() && !visa.isSelected()) {
@@ -69,13 +75,19 @@ public class SmartBearOrderPage {
             if (Amex.isEnabled() && Amex.isDisplayed() && !Amex.isSelected()) {
                 Amex.click();
             }break;
+            default:
+                Assert.fail("wrong cardType");
         }
-        this.cardNumber.sendKeys(cardNumber);
-        this.expirationDate.sendKeys(expirationDate);
+
     }
 
-    public void processOrder(String expectedMessage){
+    public void clickProcessButton(){
         processButton.click();
-        Assert.assertEquals(expectedMessage,BrowsersUtils.getText(orderMessage));
+
     }
+    public String checkOrderMessage(){
+        return BrowsersUtils.getText(orderMessage);
+
+    }
+
 }

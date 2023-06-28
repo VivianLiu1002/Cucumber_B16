@@ -50,14 +50,14 @@ public class SauceDemo_CheckoutPage {
 
         double taxPercent=Math.round((Double.parseDouble(itemTotal.replace("$",""))*0.08)*100)/100.0;
         String taxAmount=String.valueOf(taxPercent);
-        System.out.println(taxPercent);
-        System.out.println(taxAmount);
+//        System.out.println(taxPercent);
+//        System.out.println(taxAmount);
         Assert.assertTrue(BrowsersUtils.getText(tax).contains(taxAmount));
 
         DecimalFormat dFormat=new DecimalFormat("0.00");
         String totalAmount= dFormat.format(Double.parseDouble(itemTotal.replace("$",""))+taxPercent);
-        System.out.println(totalAmount);
-        System.out.println(BrowsersUtils.getText(totalPrice));
+//        System.out.println(totalAmount);
+//        System.out.println(BrowsersUtils.getText(totalPrice));
         Assert.assertTrue(BrowsersUtils.getText(totalPrice).contains(totalAmount));
     }
     public void clickFinishButton(){
